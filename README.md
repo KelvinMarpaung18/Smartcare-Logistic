@@ -6,11 +6,11 @@ Sistem purwarupa cerdas berbasis *State-Space Search* (Uniform Cost Search & A* 
 
 ## 👥 Anggota Kelompok & Pembagian Peran
 
-* **Kelompok**: [Isi Kode Kelompok, Contoh: Grup 06]
+* **Kelompok**: 06
 * **Anggota Tim**:
-  * **[Kelvin Yohanes Putra]** - *AI Architect & Model Lead*
-  * **[Amelia L.Batu]** - *Data & Integration Engineer*
-  * **[Nikah Suchia Panjaitan]** - *QA, Evaluation & Ethics Lead*
+  * **Kelvin Yohanes Putra-12S24018** - *AI Architect & Model Lead*
+  * **Amelia L.Batu-12S24031** - *Data & Integration Engineer*
+  * **Nikah Suchia Panjaitan-12S24041** - *QA, Evaluation & Ethics Lead*
 
 ---
 
@@ -42,31 +42,50 @@ Sistem purwarupa cerdas berbasis *State-Space Search* (Uniform Cost Search & A* 
 
 ## 🧮 Formulasi Ruang Keadaan Matematika $(X, A, T, G, C)$
 
-* **State Space ($X$):** `{ "PMI_Pusat", "RS_A", "RS_B", "RS_C", "RS_D", "RS_E", "RS_Darurat_UAS" }`
+* **State Space ($X$)**: `{ "PMI_Pusat", "RS_A", "RS_B", "RS_C", "RS_D", "RS_E", "RS_Darurat_UAS" }`
 * **Actions ($A$)**: Opsi perpindahan jalan dari lokasi $x_i$ ke lokasi tetangga $x_j$.
 * **Transition Model ($T$)**: $T(x_i, a) = x_j$.
 * **Goal Test ($G$)**: Agen mencapai lokasi rumah sakit tujuan darurat (`RS_Darurat_UAS`).
 * **Path Cost ($C$)**: Akumulasi total waktu tempuh perjalanan $\sum \text{weight}(e)$.
 
+### 📊 Visualisasi Graf Ruang Keadaan
+
+```mermaid
+graph LR
+    PMI[PMI_Pusat] -->|10 min| RSA[RS_A]
+    PMI -->|5 min| RSB[RS_B]
+    RSA -->|12 min| RSC[RS_C]
+    RSB -->|15 min| RSE[RS_E]
+    RSC -->|10 min| Goal((RS_Darurat_UAS))
+    RSE -->|12 min| Goal
+
+    CERTAN-Milestone/
+├── .venv/                  # Virtual Environment (Astral uv)
+├── src/
+│   └── main.py             # Skrip utama algoritma A* & UCS
+├── tests/
+│   └── test_search.py      # Pengujian unit otomatis (pytest)
+├── .gitignore
+├── .python-version
+├── pyproject.toml          # Manajer dependensi Astral uv
+├── README.md               # Dokumentasi utama proyek
+└── uv.lock
 ---
 
+## Eksekusi
+Sinkronkan Python environment dan dependensi:
 
-## ▶️ Cara Eksekusi & Panduan Instalasi
+powershell
+uv sync
 
-Proyek ini menggunakan Astral uv untuk manajemen dependensi dan virtual
-environment yang terisolasi serta reproduktif.
 
-### Menjalankan Program Utama (Optimasi Rute A*)
-
-Untuk mengeksekusi algoritma pencarian rute terpendek SmartCare Logistics:
+Menjalankan simulasi
 
 powershell
 uv run python src/main.py
 
 
-### Menjalankan Pengujian Otomatis (Pytest)
-
-Untuk memverifikasi kelulusan seluruh unit test pencarian ruang keadaan:
+Menjalankan pengujian
 
 powershell
 uv run pytest
