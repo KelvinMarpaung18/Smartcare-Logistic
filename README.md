@@ -50,6 +50,7 @@ Sistem purwarupa cerdas berbasis *State-Space Search* (Uniform Cost Search & A* 
 
 ---
 
+
 ## ▶️ Cara Eksekusi & Panduan Instalasi
 
 Proyek ini menggunakan Astral uv untuk manajemen dependensi dan virtual
