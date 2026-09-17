@@ -50,29 +50,18 @@ Sistem purwarupa cerdas berbasis *State-Space Search* (Uniform Cost Search & A* 
 
 ---
 
-### 📊 Visualisasi Graf Ruang Keadaan
 
-```mermaid
-graph LR
-    PMI[PMI_Pusat] -->|10 min| RSA[RS_A]
-    PMI -->|5 min| RSB[RS_B]
-    RSA -->|12 min| RSC[RS_C]
-    RSB -->|15 min| RSE[RS_E]
-    RSC -->|10 min| Goal((RS_Darurat_UAS))
-    RSE -->|12 min| Goal
-```
 
-## 📂 Struktur Repositori
+## 📂 Cara Eksekusi & Panduan Instalasi
 
-```text
-CERTAN-Milestone/
-├── .venv/                  # Virtual Environment (Astral uv)
-├── src/
-│   └── main.py             # Skrip utama algoritma A* & UCS
-├── tests/
-│   └── test_search.py      # Pengujian unit otomatis (pytest)
-├── .gitignore
-├── .python-version
-├── pyproject.toml          # Manajer dependensi Astral uv
-├── README.md               # Dokumentasi utama proyek
-└── uv.lock
+Proyek ini menggunakan Astral uv untuk manajemen dependensi dan virtual environment yang terisolasi serta reproduktif.
+ Menjalankan Program Utama (Optimasi Rute A*)
+Untuk mengeksekusi algoritma pencarian rute terpendek SmartCare Logistics:
+PowerShell
+uv run python src/main.py
+
+Menjalankan Pengujian Otomatis (Pytest)
+Untuk memverifikasi kelulusan seluruh unit test pencarian ruang keadaan:
+
+PowerShell
+uv run pytest
