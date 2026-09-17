@@ -42,7 +42,7 @@ Sistem purwarupa cerdas berbasis *State-Space Search* (Uniform Cost Search & A* 
 
 ## 🧮 Formulasi Ruang Keadaan Matematika $(X, A, T, G, C)$
 
-* **State Space ($X$)**: Set lokasi fasilitas medis $\{ \text{PMI\_Pusat}, \text{RS\_A}, \text{RS\_B}, \text{RS\_C}, \text{RS\_D}, \text{RS\_E}, \text{RS\_Darurat\_UAS} \}$.
+* **State Space ($X$):** `{ "PMI_Pusat", "RS_A", "RS_B", "RS_C", "RS_D", "RS_E", "RS_Darurat_UAS" }`
 * **Actions ($A$)**: Opsi perpindahan jalan dari lokasi $x_i$ ke lokasi tetangga $x_j$.
 * **Transition Model ($T$)**: $T(x_i, a) = x_j$.
 * **Goal Test ($G$)**: Agen mencapai lokasi rumah sakit tujuan darurat (`RS_Darurat_UAS`).
@@ -50,17 +50,22 @@ Sistem purwarupa cerdas berbasis *State-Space Search* (Uniform Cost Search & A* 
 
 ---
 
-## 📂 Struktur Repositori
+## ▶️ Cara Eksekusi & Panduan Instalasi
 
-```text
-CERTAN-Milestone/
-├── .venv/                  # Virtual Environment (Astral uv)
-├── src/
-│   └── main.py             # Skrip utama algoritma A* & UCS
-├── tests/
-│   └── test_search.py      # Pengujian unit otomatis (pytest)
-├── .gitignore
-├── .python-version
-├── pyproject.toml          # Manajer dependensi Astral uv
-├── README.md               # Dokumentasi utama proyek
-└── uv.lock
+Proyek ini menggunakan Astral uv untuk manajemen dependensi dan virtual
+environment yang terisolasi serta reproduktif.
+
+### Menjalankan Program Utama (Optimasi Rute A*)
+
+Untuk mengeksekusi algoritma pencarian rute terpendek SmartCare Logistics:
+
+powershell
+uv run python src/main.py
+
+
+### Menjalankan Pengujian Otomatis (Pytest)
+
+Untuk memverifikasi kelulusan seluruh unit test pencarian ruang keadaan:
+
+powershell
+uv run pytest
