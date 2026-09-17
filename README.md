@@ -42,7 +42,7 @@ Sistem purwarupa cerdas berbasis *State-Space Search* (Uniform Cost Search & A* 
 
 ## 🧮 Formulasi Ruang Keadaan Matematika $(X, A, T, G, C)$
 
-* **State Space ($X$)**: Set lokasi fasilitas medis $\{ \text{PMI\_Pusat}, \text{RS\_A}, \text{RS\_B}, \text{RS\_C}, \text{RS\_D}, \text{RS\_E}, \text{RS\_Darurat\_UAS} \}$.
+* **State Space ($X$):** `{ "PMI_Pusat", "RS_A", "RS_B", "RS_C", "RS_D", "RS_E", "RS_Darurat_UAS" }`
 * **Actions ($A$)**: Opsi perpindahan jalan dari lokasi $x_i$ ke lokasi tetangga $x_j$.
 * **Transition Model ($T$)**: $T(x_i, a) = x_j$.
 * **Goal Test ($G$)**: Agen mencapai lokasi rumah sakit tujuan darurat (`RS_Darurat_UAS`).
