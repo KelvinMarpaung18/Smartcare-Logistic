@@ -74,20 +74,17 @@ CERTAN-Milestone/
 └── uv.lock
 ```
 
-## Eksekusi
+### Eksekusi
+
 Sinkronkan Python environment dan dependensi:
 
-powershell
+```powershell
 uv sync
 
-
-Menjalankan simulasi
-
-powershell
+Menjalankan Simulasi (Optimasi Rute A*)
+PowerShell
 uv run python src/main.py
 
-
-Menjalankan pengujian
-
-powershell
+Menjalankan Pengujian Otomatis (Pytest)
+PowerShell
 uv run pytest
