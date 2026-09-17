@@ -60,20 +60,19 @@ graph LR
     RSE -->|12 min| Goal
 ```
 
----
-
-    CERTAN-Milestone/
-├── .venv/                  # Virtual Environment (Astral uv)
+```text
+CERTAN-Milestone/
+├── .venv/                  # Virtual Environment
 ├── src/
-│   └── main.py             # Skrip utama algoritma A* & UCS
+│   └── main.py             # Skrip utama A* & UCS
 ├── tests/
-│   └── test_search.py      # Pengujian unit otomatis (pytest)
+│   └── test_search.py      # Unit test (pytest)
 ├── .gitignore
 ├── .python-version
-├── pyproject.toml          # Manajer dependensi Astral uv
-├── README.md               # Dokumentasi utama proyek
+├── pyproject.toml          # Dependensi Astral uv
+├── README.md               # Dokumentasi utama
 └── uv.lock
----
+```
 
 ## Eksekusi
 Sinkronkan Python environment dan dependensi:
