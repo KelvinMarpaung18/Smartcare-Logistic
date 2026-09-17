@@ -50,18 +50,6 @@ Sistem purwarupa cerdas berbasis *State-Space Search* (Uniform Cost Search & A* 
 
 ---
 
-### 📊 Visualisasi Graf Ruang Keadaan
-
-```mermaid
-graph LR
-    PMI[PMI_Pusat] -->|10 min| RSA[RS_A]
-    PMI -->|5 min| RSB[RS_B]
-    RSA -->|12 min| RSC[RS_C]
-    RSB -->|15 min| RSE[RS_E]
-    RSC -->|10 min| Goal((RS_Darurat_UAS))
-    RSE -->|12 min| Goal
-```
-
 ## 📂 Struktur Repositori
 
 ```text
