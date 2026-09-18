@@ -1,10 +1,12 @@
 [project]
-name = "certann-ai"
+name = "smartcare-logistics"
 version = "0.1.0"
-description = "Add your description here"
+description = "SmartCare Logistics - Enterprise AI Copilot Optimasi Rute Distribusi Obat & Darah Darurat"
 readme = "README.md"
 authors = [
-    { name = "KelvinMarpaung18", email = "kelvinmarpaung088@gmail.com" }
+    { name = "Kelvin Yohanes Putra", email = "kelvinmarpaung088@gmail.com" },
+    { name = "Amelia L.Batu" },
+    { name = "Nikah Suchia Panjaitan" }
 ]
 requires-python = ">=3.11"
 dependencies = [
@@ -22,7 +24,7 @@ dependencies = [
 ]
 
 [project.scripts]
-certann-ai = "certann_ai:main"
+smartcare-logistics = "smartcare_logistics:main"
 
 [build-system]
 requires = ["uv_build>=0.12.10,<0.13.0"]

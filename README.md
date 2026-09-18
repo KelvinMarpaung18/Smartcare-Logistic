@@ -55,36 +55,63 @@ graph LR
     PMI[PMI_Pusat] -->|10 min| RSA[RS_A]
     PMI -->|5 min| RSB[RS_B]
     RSA -->|12 min| RSC[RS_C]
+    RSA -->|8 min| RSD[RS_D]
+    RSB -->|18 min| RSC
     RSB -->|15 min| RSE[RS_E]
     RSC -->|10 min| Goal((RS_Darurat_UAS))
+    RSD -->|14 min| Goal
     RSE -->|12 min| Goal
 ```
 
+### 🧠 Nilai Heuristik $h(n)$ (Terbukti Admissible $h(n) \le h^*(n)$)
+
+| Node ($n$) | Estimasi Waktu ke Goal $h(n)$ | Biaya Aktual Terpendek $h^*(n)$ | Status Admissible |
+|---|---|---|---|
+| `PMI_Pusat` | 30.0 min | 32.0 min | ✅ $30.0 \le 32.0$ |
+| `RS_A` | 20.0 min | 22.0 min | ✅ $20.0 \le 22.0$ |
+| `RS_B` | 26.0 min | 27.0 min | ✅ $26.0 \le 27.0$ |
+| `RS_C` | 9.0 min | 10.0 min | ✅ $9.0 \le 10.0$ |
+| `RS_D` | 13.0 min | 14.0 min | ✅ $13.0 \le 14.0$ |
+| `RS_E` | 11.0 min | 12.0 min | ✅ $11.0 \le 12.0$ |
+| `RS_Darurat_UAS` | 0.0 min | 0.0 min | ✅ $0.0 \le 0.0$ |
+
+---
+
+## 📁 Struktur Repositori
+
 ```text
-CERTAN-Milestone/
+SmartCare-Logistics/
 ├── .venv/                  # Virtual Environment
 ├── src/
-│   └── main.py             # Skrip utama A* & UCS
+│   ├── smartcare_logistics/
+│   │   ├── __init__.py
+│   │   └── search.py       # Algoritma UCS & A* Search (heapq)
+│   └── main.py             # Skrip simulasi utama
 ├── tests/
-│   └── test_search.py      # Unit test (pytest)
+│   └── test_search.py      # Pengujian otomatis pytest
 ├── .gitignore
 ├── .python-version
+├── LICENSE                 # Lisensi MIT
 ├── pyproject.toml          # Dependensi Astral uv
 ├── README.md               # Dokumentasi utama
 └── uv.lock
 ```
 
-### Eksekusi
+---
 
-Sinkronkan Python environment dan dependensi:
+## 🚀 Instruksi Eksekusi
 
-```powershell
-uv sync
+1. **Sinkronkan Environment & Dependensi (Astral `uv`)**:
+   ```powershell
+   uv sync
+   ```
 
-Menjalankan Simulasi (Optimasi Rute A*)
-PowerShell
-uv run python src/main.py
+2. **Menjalankan Simulasi (Optimasi Rute UCS & A*)**:
+   ```powershell
+   uv run python src/main.py
+   ```
 
-Menjalankan Pengujian Otomatis (Pytest)
-PowerShell
-uv run pytest
+3. **Menjalankan Pengujian Otomatis (Pytest)**:
+   ```powershell
+   uv run pytest
+   ```
