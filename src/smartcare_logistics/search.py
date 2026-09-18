@@ -45,14 +45,14 @@ def uniform_cost_search(
 
     while pq:
         cost, current, path = heapq.heappop(pq)
-        nodes_explored += 1
-
-        if current == goal:
-            return path, cost, nodes_explored
 
         if current in visited and visited[current] <= cost:
             continue
         visited[current] = cost
+        nodes_explored += 1
+
+        if current == goal:
+            return path, cost, nodes_explored
 
         for neighbor, edge_cost in graph.get(current, {}).items():
             new_cost = cost + edge_cost
@@ -76,27 +76,29 @@ def a_star_search(
         return None, float("inf"), 0
 
     initial_h = heuristic.get(start, 0.0)
-    pq: List[Tuple[float, float, str, List[str]]] = [(initial_h, 0.0, start, [start])]
+    # Tuple format: (f_score, h_score, g_score, current, path)
+    # Tie-breaking by h_score prefers nodes closer to goal when f_scores are equal
+    pq: List[Tuple[float, float, float, str, List[str]]] = [(initial_h, initial_h, 0.0, start, [start])]
     visited: Dict[str, float] = {}
     nodes_explored = 0
 
     while pq:
-        f_score, g_score, current, path = heapq.heappop(pq)
+        f_score, h_score, g_score, current, path = heapq.heappop(pq)
+
+        if current in visited and visited[current] <= g_score:
+            continue
+        visited[current] = g_score
         nodes_explored += 1
 
         if current == goal:
             return path, g_score, nodes_explored
 
-        if current in visited and visited[current] <= g_score:
-            continue
-        visited[current] = g_score
-
         for neighbor, edge_cost in graph.get(current, {}).items():
             new_g = g_score + edge_cost
-            h_score = heuristic.get(neighbor, 0.0)
-            new_f = new_g + h_score
+            new_h = heuristic.get(neighbor, 0.0)
+            new_f = new_g + new_h
 
             if neighbor not in visited or new_g < visited[neighbor]:
-                heapq.heappush(pq, (new_f, new_g, neighbor, path + [neighbor]))
+                heapq.heappush(pq, (new_f, new_h, new_g, neighbor, path + [neighbor]))
 
     return None, float("inf"), nodes_explored
